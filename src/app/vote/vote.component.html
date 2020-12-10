@@ -1,0 +1,14 @@
+<div class="wrap">
+  <div class="container">
+    <img src="../assets/banner.jpg" class="img-fluid" />
+    <div class="avengers">
+      <div class="hero" *ngFor="let hero of allHeros" (click)="clickEvent(hero)"
+        [ngClass]="(!this.hasVoted && selectedHero == hero.short) ? 'selected' : ''">
+        <img [src]="hero.image" />
+        <label class="hero-name">{{ hero.name }}</label>
+        <p class="votes">{{ heroVotes[hero.short] }} Votes</p>
+      </div>
+    </div>
+    <input type="submit" class="btn" id="submit" (click)="castVote()" [value]="votedText" [disabled]="this.hasVoted" />
+  </div>
+</div>

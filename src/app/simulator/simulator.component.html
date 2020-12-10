@@ -1,0 +1,33 @@
+<div class="bg-img">
+
+</div>
+<div class="wrap">
+  <div class="container">
+    <div class="panel">
+      <div class="panel-heading">
+        <h1>Control Panel</h1>
+      </div>
+      <button type="text" class="btn" (click)="simulate()"
+        [ngClass]="(startstop=='Start') ? 'green' : 'red'">{{ startstop }}</button>
+      <button type="text" class="btn blue" (click)="clean()">Clear</button>
+      <div style="width:100%;text-align:center;">
+        <div class="voteCount">{{ count }} votes simulated</div>
+        <button class="btn secondary" (click)="openModal('modal')">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="modal">
+  <h1>Control Panel Details</h1>
+  <div class="avengers">
+    <div class="hero" *ngFor="let hero of heroVotes" style="display: inline-block;width: 25%;text-align: center;">
+      <img [src]="hero.image" style="width:200px;height:250px;" />
+      <h1>{{ hero.short }}</h1>
+      <h6>{{ hero.votes }} Votes</h6>
+    </div>
+  </div>
+  <div class="voteCount">{{ count }} votes simulated</div>
+  <div class="voteCount" style="margin-top:5px;padding-top:5px;">{{ total }} total votes</div>
+  <button type="text" class="btn green" (click)="closeModal('modal');">Close</button>
+</jw-modal>
