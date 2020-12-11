@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    backend: 'holder'
+    backend: 'avengers-backend.azurewebsites.net'
 };
