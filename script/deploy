@@ -7,6 +7,5 @@ ssh ubuntu@ec2-52-2-168-14.compute-1.amazonaws.com <<EOF
     nvm install node
     npm install
     npm install -g @angular/cli
-
     exit
 EOF
