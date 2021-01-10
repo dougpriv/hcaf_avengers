@@ -598,7 +598,7 @@ var ModalService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ubuntu/avengers-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/doug/avengers-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
