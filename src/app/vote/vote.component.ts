@@ -73,6 +73,6 @@ export class VoteComponent {
   getVoteText() {
     if (localStorage.getItem('voted') == 'true') this.hasVoted = true;
     if (this.hasVoted) this.votedText = 'Thanks for Voting!'
-    else this.votedText = 'Select a Hero';
+    else this.votedText = 'Selet a Hero';
   }
 }
