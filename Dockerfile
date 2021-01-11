@@ -10,4 +10,5 @@ RUN echo meep
 RUN npm install
 RUN npm install -g @angular/cli@7.3.9
 COPY . /app
+
 CMD echo "export const environment = { backend:\"`echo ${SERVER_URI}`\", production: true }" > /app/src/environments/environment.ts;echo "export const environment = { backend:\"`echo ${SERVER_URI}`\", production: true }" > /app/src/environments/environment.prod.ts;ng serve --prod --host 0.0.0.0 --port 8002
