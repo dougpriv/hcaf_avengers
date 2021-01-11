@@ -13,17 +13,16 @@ pipeline {
                 sh 'npm install --verbose -d'
             }
         }
-        stage('Archive') {
-            steps {
-                snDevOpsStep()
-                sh "cd dist && zip -r ../dist.zip . && cd .."
-                archiveArtifacts artifacts: "dist.zip", fingerprint: true
-            }
-        }
         stage('Build') {
             steps {
                 snDevOpsStep()
                 sh 'npm run build --prod'
+            }
+        }
+        stage('Archive') {
+            steps {
+                sh "cd dist && zip -r ../dist.zip . && cd .."
+                archiveArtifacts artifacts: "dist.zip", fingerprint: true
             }
         }
         stage('Deploy') {
