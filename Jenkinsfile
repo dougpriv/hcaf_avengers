@@ -21,8 +21,8 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                sh "cd dist && zip -r ../dist.zip . && cd .."
-                archiveArtifacts artifacts: "dist.zip", fingerprint: true
+                sh "cd dist && zip -r ../${DIST_ARCHIVE}.zip . && cd .."
+                archiveArtifacts artifacts: "${DIST_ARCHIVE}.zip", fingerprint: true
             }
         }
         stage('Deploy') {
