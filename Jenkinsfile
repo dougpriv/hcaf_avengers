@@ -9,17 +9,28 @@ pipeline {
     stages {
         stage('NPM Install') {
             steps {
+                snDevOpsStep(enabled:{true}, ignoreErrors:{false})
                 sh 'npm install --verbose -d'
+            }
+        }
+        stage('Archive') {
+            steps {
+                snDevOpsStep(enabled:{true}, ignoreErrors:{false})
+                sh "cd dist && zip -r ../dist.zip . && cd .."
+                archiveArtifacts artifacts: "dist.zip", fingerprint: true
             }
         }
         stage('Build') {
             steps {
+                snDevOpsStep(enabled:{true}, ignoreErrors:{false})
                 sh 'npm run build --prod'
             }
         }
         stage('Deploy') {
             steps {
-              sh 'aws s3 cp ./dist/angular/ s3://cdi-avengers/ --recursive --acl public-read'
+                snDevOpsStep(enabled:{true}, ignoreErrors:{false})
+                snDevOpsChange()
+                sh 'aws s3 cp ./dist/angular/ s3://cdi-avengers/ --recursive --acl public-read'
           }
         }
     }
