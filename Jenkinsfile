@@ -13,6 +13,7 @@ pipeline {
                 sh 'npm install --verbose -d'
             }
         }
+        
         stage('Build') {
             steps {
                 snDevOpsStep()
