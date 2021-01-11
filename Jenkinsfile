@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 snDevOpsStep()
-                snDevOpsChange()
+                //snDevOpsChange()
                 sh 'aws s3 cp ./dist/angular/ s3://cdi-avengers/ --recursive --acl public-read'
           }
         }
