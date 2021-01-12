@@ -4,7 +4,6 @@ def DIST_ARCHIVE = "dist.${env.BUILD_NUMBER}"
 pipeline {
     agent any
 
-    
     stages {
         stage('Install') {
             steps {
