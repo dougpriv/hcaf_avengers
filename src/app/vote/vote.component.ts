@@ -61,6 +61,7 @@ export class VoteComponent {
   }
 
   castVote() {
+    console.log(this.selectedHero);
     if (this.selectedHero == null) this.votedText = "Hey! Pick a Hero!"
     localStorage.setItem('voted', 'true');
     this.http.post('http://' + environment.backend + '/castVote', { hero: this.selectedHero })
