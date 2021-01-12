@@ -7,7 +7,7 @@ def S3_BUCKET = 'hcaf'
 
 pipeline {
     agent any
-    tools { nodejs "NodeJS 15.5.1" }
+    tools { node "NodeJS 15.5.1" }
 
     stages {
         stage('Install') {
