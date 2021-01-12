@@ -7,7 +7,7 @@ pipeline {
     tools { nodejs "NodeJS 15.5.1" }
 
     stages {
-        stage('NPM Install') {
+        stage('Install') {
             steps {
                 snDevOpsStep()
                 sh 'npm install --verbose -d'
