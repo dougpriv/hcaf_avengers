@@ -52,7 +52,7 @@ export class VoteComponent {
     if (localStorage.getItem('voted') !== 'true') {
       if (this.selectedHero == x.short) {
         this.selectedHero = null;
-        this.votedText = 'Selt a hero'
+        this.votedText = 'Selet a hero'
       } else {
         this.selectedHero = x.short;
         this.votedText = 'Vote for ' + this.allHeros.find(obj => { return obj.short === this.selectedHero }).name;
