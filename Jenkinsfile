@@ -12,7 +12,6 @@ pipeline {
         stage('Install') {
             steps {
                 sh 'npm install --verbose -d'
-                sh 'npm install -g @angular/cli@7.3.9'
             }
         }
         stage('Build') {
