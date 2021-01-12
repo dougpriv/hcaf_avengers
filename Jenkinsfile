@@ -15,25 +15,33 @@ pipeline {
                 sh 'npm run build --prod'
             }
         }
-        stage('Deploy-Dev') {
-            steps {
-                sh 'aws s3 cp ./dist/angular/ s3://hcaf-dev/ --recursive --acl public-read'
-            }
-        }
-        stage('Deploy-Test') {
-            steps {
-                sh 'aws s3 cp ./dist/angular/ s3://hcaf-test/ --recursive --acl public-read'
-            }
-        }
-        stage('Deploy-Qa') {
-            steps {
-                sh 'aws s3 cp ./dist/angular/ s3://hcaf-qa/ --recursive --acl public-read'
-            }
-        }
-        stage('Deploy-Prod') {
-            steps {
-                snDevOpsChange()
-                sh 'aws s3 cp ./dist/angular/ s3://hcaf/ --recursive --acl public-read'
+        stage('Deploy') {
+            stages {
+                stage('Deploy-Dev') {
+                    when {
+                        branch 'dev'
+                    }
+                    steps {
+                        sh 'aws s3 cp ./dist/angular/ s3://hcaf-dev/ --recursive --acl public-read'
+                    }
+                }
+                stage('Deploy-Test') {
+                    when {
+                        branch 'test'
+                    }
+                    steps {
+                        sh 'aws s3 cp ./dist/angular/ s3://hcaf-test/ --recursive --acl public-read'
+                    }
+                }
+                stage('Deploy-Prod') {
+                    when {
+                        branch 'main'
+                    }
+                    steps {
+                        snDevOpsChange()
+                        sh 'aws s3 cp ./dist/angular/ s3://hcaf/ --recursive --acl public-read'
+                    }
+                }
             }
         }
     }
