@@ -67,7 +67,9 @@ export class VoteComponent {
     .subscribe(res => {
       this.getVotes();
       this.getVoteText();
-    }, (err) => { console.log('err: ' + JSON.stringify(err)); })  
+    }, (err) => { console.log('err: ' + JSON.stringify(err)); })
+
+    
   }
 
   getVoteText() {
