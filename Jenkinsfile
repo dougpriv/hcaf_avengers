@@ -25,23 +25,16 @@ pipeline {
                 sh 'aws s3 cp ./dist/angular/ s3://hcaf-test/ --recursive --acl public-read'
             }
         }
+        stage('Pre-Deploy-Test') {
+            steps {
+                echo "Test succeeded"
+            }
+        }
         stage('Deploy-Prod') {
             steps {
                 snDevOpsChange()
                 sh 'aws s3 cp ./dist/angular/ s3://hcaf/ --recursive --acl public-read'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Test summary'
-        }
-        success {
-            echo 'Test successed'
-        }
-        failure {
-            echo 'Test failed'
         }
     }
 }
