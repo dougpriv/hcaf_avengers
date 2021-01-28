@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Pre-Deploy-Test') {
             steps {
-                echo "Test succeeded"
+                echo "Test execution step..."
             }
         }
         stage('Deploy-Prod') {
