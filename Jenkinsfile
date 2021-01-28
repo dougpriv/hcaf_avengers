@@ -27,6 +27,7 @@ pipeline {
         }
         stage('Pre-Deploy-Test') {
             steps {
+                sh 'npm i -D puppeteer karma-chrome-launcher'
                 sh 'npm run test'
             }
         }
