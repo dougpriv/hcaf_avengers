@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Pre-Deploy-Test') {
             steps {
-                echo "Test execution step..."
+                sh 'npm run test'
             }
         }
         stage('Deploy-Prod') {
