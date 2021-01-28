@@ -30,7 +30,6 @@ pipeline {
                 echo 'Test'
             }
         }
-
         stage('Deploy-Prod') {
             steps {
                 snDevOpsChange()
