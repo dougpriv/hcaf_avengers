@@ -33,6 +33,7 @@ pipeline {
         stage('Deploy-Prod') {
             steps {
                 snDevOpsChange()
+                snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "AvengersArtifact", "version": "1.${BUILD_NUMBER}","semanticVersion": "1.${BUILD_NUMBER}.0","repositoryName": "hcaf_avengers"}]}""")
                 sh 'aws s3 cp ./dist/angular/ s3://hcaf/ --recursive --acl public-read'
             }
         }
